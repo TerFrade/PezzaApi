@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PezzaApi.Data.Models
 {
     [Table("Pizza")]
-    public class Pizza
+    public class PizzaModel
     {
         [Key]
         public Guid Id { get; set; }
@@ -19,9 +19,9 @@ namespace PezzaApi.Data.Models
 
         public DateTime? DateCreated { get; set; }
 
-        public static Pizza[] Seed = new Pizza[]
+        public static PizzaModel[] Seed = new PizzaModel[]
         {
-             new Pizza() { Id = Guid.NewGuid(), Name = "Triple Cheese Pizza", DateCreated = DateTime.Now, Description="Triple Cheese Pizza consists of 3 types of cheese: Mozzerella, Cheddar, Feta", Price =  39.99M},
+             new PizzaModel() { Id = Guid.NewGuid(), Name = "Triple Cheese Pizza", DateCreated = DateTime.Now, Description="Triple Cheese Pizza consists of 3 types of cheese: Mozzerella, Cheddar, Feta", Price =  39.99M},
         };
     }
 }

@@ -13,22 +13,22 @@ public class PizzaHandler : IPizzaHandler
         _dbContext = context;
     }
 
-    public async Task<IEnumerable<PizzaDTO>> GetPizzas()
+    public async Task<IEnumerable<PezzaApi.DTO.Pizza>> GetPizzas()
     {
         var pizzas = await _dbContext.Pizza.ToListAsync();
-        return pizzas.Select(p => new PizzaDTO(p));
+        return pizzas.Select(p => new Pizza(p));
     }
 
-    public async Task<PizzaDTO> GetPizzaById(Guid id)
+    public async Task<PezzaApi.DTO.Pizza> GetPizzaById(Guid id)
     {
         var pizza = await _dbContext.Pizza.FindAsync(id);
         if (pizza == null) throw new ArgumentException("Pizza not found");
-        return new PizzaDTO(pizza);
+        return new Pizza(pizza);
     }
 
-    public async Task<PizzaDTO> CreatePizza(PizzaDTO pizzaDTO)
+    public async Task<PezzaApi.DTO.Pizza> CreatePizza(PezzaApi.DTO.Pizza pizzaDTO)
     {
-        var pizza = new Pizza
+        var pizza = new PezzaApi.Data.Models.PizzaModel
         {
             Id = pizzaDTO.Id,
             Name = pizzaDTO.Name,
@@ -40,10 +40,10 @@ public class PizzaHandler : IPizzaHandler
         _dbContext.Pizza.Add(pizza);
         await _dbContext.SaveChangesAsync();
 
-        return new PizzaDTO(pizza);
+        return new Pizza(pizza);
     }
 
-    public async Task UpdatePizza(Guid id, PizzaDTO pizzaDTO)
+    public async Task UpdatePizza(Guid id, PezzaApi.DTO.Pizza pizzaDTO)
     {
         var pizza = await _dbContext.Pizza.FindAsync(id);
         if (pizza == null) throw new ArgumentException("Pizza not found");

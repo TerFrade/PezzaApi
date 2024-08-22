@@ -9,11 +9,11 @@ namespace PezzaApi.Data
         {
         }
 
-        public DbSet<PezzaApi.Data.Models.Pizza> Pizza { get; set; }
+        public DbSet<PezzaApi.Data.Models.PizzaModel> Pizza { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pizza>().HasData(PezzaApi.Data.Models.Pizza.Seed);
+            modelBuilder.Entity<PizzaModel>().HasData(PezzaApi.Data.Models.PizzaModel.Seed);
         }
     }
 }

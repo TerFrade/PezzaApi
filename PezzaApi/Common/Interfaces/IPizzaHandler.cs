@@ -4,13 +4,13 @@ namespace PezzaApi.Common.Interfaces
 {
     public interface IPizzaHandler
     {
-        Task<IEnumerable<PizzaDTO>> GetPizzas();
+        Task<IEnumerable<Pizza>> GetPizzas();
 
-        Task<PizzaDTO> GetPizzaById(Guid id);
+        Task<Pizza> GetPizzaById(Guid id);
 
-        Task UpdatePizza(Guid id, PizzaDTO pizza);
+        Task UpdatePizza(Guid id, Pizza pizza);
 
-        Task<PizzaDTO> CreatePizza(PizzaDTO pizza);
+        Task<Pizza> CreatePizza(Pizza pizza);
 
         Task DeletePizza(Guid id);
     }

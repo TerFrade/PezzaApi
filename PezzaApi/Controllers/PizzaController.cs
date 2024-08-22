@@ -4,18 +4,18 @@ using PezzaApi.DTO;
 
 [ApiController]
 [Route("[controller]")]
-public class PizzasController : ControllerBase
+public class PizzaController : ControllerBase
 {
     private readonly IPizzaHandler handler;
 
-    public PizzasController(IPizzaHandler pizzaHandler)
+    public PizzaController(IPizzaHandler pizzaHandler)
     {
         handler = pizzaHandler;
     }
 
     // GET: api/Pizzas
     [HttpGet]
-    [Produces(typeof(PizzaDTO))]
+    [Produces(typeof(Pizza))]
     public async Task<IActionResult> GetPizza()
     {
         var pizzaDTOs = await handler.GetPizzas();
@@ -24,8 +24,8 @@ public class PizzasController : ControllerBase
 
     // GET: api/Pizzas/5
     [HttpGet("{id}")]
-    [Produces(typeof(PizzaDTO))]
-    public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
+    [Produces(typeof(Pizza))]
+    public async Task<ActionResult<Pizza>> GetPizza(Guid id)
     {
         var pizzaDTO = await handler.GetPizzaById(id);
         if (pizzaDTO == null)
@@ -38,7 +38,7 @@ public class PizzasController : ControllerBase
     // PUT: api/Pizzas/5
     [HttpPut("{id}")]
     [Produces(typeof(void))]
-    public async Task<IActionResult> PutPizza(Guid id, PizzaDTO pizza)
+    public async Task<IActionResult> PutPizza(Guid id, Pizza pizza)
     {
         try
         {
@@ -53,8 +53,8 @@ public class PizzasController : ControllerBase
 
     // POST: api/Pizzas
     [HttpPost]
-    [Produces(typeof(PizzaDTO))]
-    public async Task<ActionResult<PizzaDTO>> PostPizza(PizzaDTO pizza)
+    [Produces(typeof(Pizza))]
+    public async Task<ActionResult<Pizza>> PostPizza(Pizza pizza)
     {
         var pizzaDTO = await handler.CreatePizza(pizza);
         return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizzaDTO);
