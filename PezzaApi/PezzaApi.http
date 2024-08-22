@@ -1,4 +1,4 @@
-@PezzaApi_HostAddress = http://localhost:5244
+@PezzaApi_HostAddress = http://localhost:5242
 
 GET {{PezzaApi_HostAddress}}/weatherforecast/
 Accept: application/json
