@@ -13,22 +13,22 @@ public class PizzaHandler : IPizzaHandler
         _dbContext = context;
     }
 
-    public async Task<IEnumerable<PezzaApi.DTO.Pizza>> GetPizzas()
+    public async Task<IEnumerable<Pizza>> GetPizzas()
     {
         var pizzas = await _dbContext.Pizza.ToListAsync();
         return pizzas.Select(p => new Pizza(p));
     }
 
-    public async Task<PezzaApi.DTO.Pizza> GetPizzaById(Guid id)
+    public async Task<Pizza> GetPizzaById(Guid id)
     {
         var pizza = await _dbContext.Pizza.FindAsync(id);
         if (pizza == null) throw new ArgumentException("Pizza not found");
         return new Pizza(pizza);
     }
 
-    public async Task<PezzaApi.DTO.Pizza> CreatePizza(PezzaApi.DTO.Pizza pizzaDTO)
+    public async Task<Pizza> CreatePizza(Pizza pizzaDTO)
     {
-        var pizza = new PezzaApi.Data.Models.PizzaModel
+        var pizza = new PizzaModel
         {
             Id = pizzaDTO.Id,
             Name = pizzaDTO.Name,
@@ -43,7 +43,7 @@ public class PizzaHandler : IPizzaHandler
         return new Pizza(pizza);
     }
 
-    public async Task UpdatePizza(Guid id, PezzaApi.DTO.Pizza pizzaDTO)
+    public async Task UpdatePizza(Guid id, Pizza pizzaDTO)
     {
         var pizza = await _dbContext.Pizza.FindAsync(id);
         if (pizza == null) throw new ArgumentException("Pizza not found");
