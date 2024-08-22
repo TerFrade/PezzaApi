@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PezzaApi.Common.Interfaces;
 using PezzaApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ services.AddDbContext<PezzaDbContext>(options =>
     options.UseInMemoryDatabase("PezzaDb"));
 
 // Add services to the container.
+services.AddScoped<IPizzaHandler, PizzaHandler>();
+
 services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>

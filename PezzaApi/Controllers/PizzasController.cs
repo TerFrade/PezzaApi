@@ -1,131 +1,71 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PezzaApi.Data;
-using PezzaApi.Data.Models;
+using PezzaApi.Common.Interfaces;
 using PezzaApi.DTO;
 
-namespace PezzaApi.Controllers
+[ApiController]
+[Route("[controller]")]
+public class PizzasController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class PizzasController : ControllerBase
+    private readonly IPizzaHandler _pizzaHandler;
+
+    public PizzasController(IPizzaHandler pizzaHandler)
     {
-        private readonly PezzaDbContext _context;
+        _pizzaHandler = pizzaHandler;
+    }
 
-        public PizzasController(PezzaDbContext context)
+    // GET: api/Pizzas
+    [HttpGet]
+    [Produces(typeof(PizzaDTO))]
+    public async Task<IActionResult> GetPizza()
+    {
+        var pizzaDTOs = await _pizzaHandler.GetPizzas();
+        return Ok(pizzaDTOs);
+    }
+
+    // GET: api/Pizzas/5
+    [HttpGet("{id}")]
+    [Produces(typeof(PizzaDTO))]
+    public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
+    {
+        var pizzaDTO = await _pizzaHandler.GetPizzaById(id);
+        if (pizzaDTO == null)
         {
-            _context = context;
+            return NotFound();
         }
+        return Ok(pizzaDTO);
+    }
 
-        // GET: api/Pizzas
-        [HttpGet]
-        [Produces(typeof(PizzaDTO))]
-        public async Task<IActionResult> GetPizza()
+    // PUT: api/Pizzas/5
+    [HttpPut("{id}")]
+    [Produces(typeof(void))]
+    public async Task<IActionResult> PutPizza(Guid id, PizzaDTO pizza)
+    {
+        try
         {
-            var pizzas = await _context.Pizza.ToListAsync();
-            var pizzaDTOs = pizzas.Select(x => new PizzaDTO(x)).ToList();
-            return Ok(pizzaDTOs);
+            await _pizzaHandler.UpdatePizza(id, pizza);
         }
-
-        // GET: api/Pizzas/5
-        [HttpGet("{id}")]
-        [Produces(typeof(PizzaDTO))]
-        public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
+        catch (ArgumentException)
         {
-            var pizza = await _context.Pizza.FindAsync(id);
-
-            if (pizza == null)
-            {
-                return NotFound();
-            }
-
-            var pizzaDTO = new PizzaDTO(pizza);
-            return Ok(pizzaDTO);
+            return BadRequest();
         }
+        return NoContent();
+    }
 
-        // PUT: api/Pizzas/5
-        [HttpPut("{id}")]
-        [Produces(typeof(PizzaDTO))]
-        public async Task<IActionResult> PutPizza(Guid id, PizzaDTO pizzaDTO)
-        {
-            if (id != pizzaDTO.Id)
-            {
-                return BadRequest();
-            }
+    // POST: api/Pizzas
+    [HttpPost]
+    [Produces(typeof(PizzaDTO))]
+    public async Task<ActionResult<PizzaDTO>> PostPizza(PizzaDTO pizza)
+    {
+        var pizzaDTO = await _pizzaHandler.CreatePizza(pizza);
+        return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizzaDTO);
+    }
 
-            var pizza = await _context.Pizza.FirstOrDefaultAsync(x => x.Id == id);
-            if (pizza == null)
-            {
-                return NotFound();
-            }
-
-            // Map PizzaDTO to Pizza entity
-            pizza.Name = pizzaDTO.Name;
-            pizza.Description = pizzaDTO.Description;
-            pizza.Price = pizzaDTO.Price;
-
-            _context.Entry(pizza).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PizzaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Pizzas
-        [HttpPost]
-        [Produces(typeof(PizzaDTO))]
-        public async Task<ActionResult<PizzaDTO>> PostPizza([FromBody] PizzaDTO pizzaDTO)
-        {
-            var pizza = new Pizza
-            {
-                Id = pizzaDTO.Id,
-                Name = pizzaDTO.Name,
-                Description = pizzaDTO.Description,
-                Price = pizzaDTO.Price,
-                DateCreated = DateTime.Now,
-            };
-
-            _context.Pizza.Add(pizza);
-            await _context.SaveChangesAsync();
-
-            pizzaDTO.Id = pizza.Id;
-            return CreatedAtAction(nameof(GetPizza), new { id = pizzaDTO.Id }, pizzaDTO);
-        }
-
-        // DELETE: api/Pizzas/5
-        [HttpDelete("{id}")]
-        [Produces(typeof(PizzaDTO))]
-        public async Task<IActionResult> DeletePizza(Guid id)
-        {
-            var pizza = await _context.Pizza.FindAsync(id);
-            if (pizza == null)
-            {
-                return NotFound();
-            }
-
-            _context.Pizza.Remove(pizza);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool PizzaExists(Guid id)
-        {
-            return _context.Pizza.Any(e => e.Id == id);
-        }
+    // DELETE: api/Pizzas/5
+    [HttpDelete("{id}")]
+    [Produces(typeof(void))]
+    public async Task<IActionResult> DeletePizza(Guid id)
+    {
+        await _pizzaHandler.DeletePizza(id);
+        return NoContent();
     }
 }
