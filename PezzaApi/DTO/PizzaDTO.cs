@@ -1,4 +1,5 @@
 ﻿using PezzaApi.Data.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PezzaApi.DTO
 {
@@ -9,19 +10,12 @@ namespace PezzaApi.DTO
         public string? Description { get; set; }
         public decimal Price { get; set; }
 
-        //public PizzaDTO()
-        //{ }
-
         public PizzaDTO(Pizza pizza)
         {
             Id = pizza.Id;
             Name = pizza.Name;
+            Description = pizza.Description;
             Price = pizza.Price;
-
-            if (pizza.Description != null)
-            {
-                Description = pizza.Description;
-            }
         }
     }
 }

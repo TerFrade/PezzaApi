@@ -22,12 +22,15 @@ namespace PezzaApi.Controllers
         [Produces(typeof(PizzaDTO))]
         public async Task<IActionResult> GetPizza()
         {
-            return Ok(await _context.Pizza.ToListAsync());
+            var pizzas = await _context.Pizza.ToListAsync();
+            var pizzaDTOs = pizzas.Select(x => new PizzaDTO(x)).ToList();
+            return Ok(pizzaDTOs);
         }
 
         // GET: api/Pizzas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Pizza>> GetPizza(Guid id)
+        [Produces(typeof(PizzaDTO))]
+        public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
         {
             var pizza = await _context.Pizza.FindAsync(id);
 
@@ -36,19 +39,30 @@ namespace PezzaApi.Controllers
                 return NotFound();
             }
 
-            return pizza;
+            var pizzaDTO = new PizzaDTO(pizza);
+            return Ok(pizzaDTO);
         }
 
         // PUT: api/Pizzas/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Produces(typeof(PizzaDTO))]
-        public async Task<IActionResult> PutPizza(Guid id, Pizza pizza)
+        public async Task<IActionResult> PutPizza(Guid id, PizzaDTO pizzaDTO)
         {
-            if (id != pizza.Id)
+            if (id != pizzaDTO.Id)
             {
                 return BadRequest();
             }
+
+            var pizza = await _context.Pizza.FirstOrDefaultAsync(x => x.Id == id);
+            if (pizza == null)
+            {
+                return NotFound();
+            }
+
+            // Map PizzaDTO to Pizza entity
+            pizza.Name = pizzaDTO.Name;
+            pizza.Description = pizzaDTO.Description;
+            pizza.Price = pizzaDTO.Price;
 
             _context.Entry(pizza).State = EntityState.Modified;
 
@@ -72,15 +86,24 @@ namespace PezzaApi.Controllers
         }
 
         // POST: api/Pizzas
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Produces(typeof(PizzaDTO))]
-        public async Task<ActionResult<Pizza>> PostPizza(Pizza pizza)
+        public async Task<ActionResult<PizzaDTO>> PostPizza([FromBody] PizzaDTO pizzaDTO)
         {
+            var pizza = new Pizza
+            {
+                Id = pizzaDTO.Id,
+                Name = pizzaDTO.Name,
+                Description = pizzaDTO.Description,
+                Price = pizzaDTO.Price,
+                DateCreated = DateTime.Now,
+            };
+
             _context.Pizza.Add(pizza);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizza);
+            pizzaDTO.Id = pizza.Id;
+            return CreatedAtAction(nameof(GetPizza), new { id = pizzaDTO.Id }, pizzaDTO);
         }
 
         // DELETE: api/Pizzas/5

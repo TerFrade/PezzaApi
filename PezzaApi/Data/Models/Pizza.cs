@@ -1,13 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PezzaApi.Data.Models
 {
+    [Table("Pizza")]
     public class Pizza
     {
-        [Key] public Guid Id { get; set; }
-        [MinLength(3), MaxLength(25), Required] public string Name { get; set; }
+        [Key]
+        public Guid Id { get; set; }
+
+        [MinLength(3), MaxLength(35), Required]
+        public string Name { get; set; }
+
         public string? Description { get; set; }
-        [Required] public decimal Price { get; set; }
+
+        [Required]
+        public decimal Price { get; set; }
+
         public DateTime? DateCreated { get; set; }
 
         public static Pizza[] Seed = new Pizza[]
