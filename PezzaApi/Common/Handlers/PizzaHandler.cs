@@ -22,7 +22,7 @@ public class PizzaHandler : IPizzaHandler
     public async Task<PizzaDTO> GetPizzaById(Guid id)
     {
         var pizza = await _dbContext.Pizza.FindAsync(id);
-        if (pizza == null) return null; // Handle in the controller
+        if (pizza == null) throw new ArgumentException("Pizza not found");
         return new PizzaDTO(pizza);
     }
 
