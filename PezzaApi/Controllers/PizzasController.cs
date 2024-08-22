@@ -6,11 +6,11 @@ using PezzaApi.DTO;
 [Route("[controller]")]
 public class PizzasController : ControllerBase
 {
-    private readonly IPizzaHandler _pizzaHandler;
+    private readonly IPizzaHandler handler;
 
     public PizzasController(IPizzaHandler pizzaHandler)
     {
-        _pizzaHandler = pizzaHandler;
+        handler = pizzaHandler;
     }
 
     // GET: api/Pizzas
@@ -18,7 +18,7 @@ public class PizzasController : ControllerBase
     [Produces(typeof(PizzaDTO))]
     public async Task<IActionResult> GetPizza()
     {
-        var pizzaDTOs = await _pizzaHandler.GetPizzas();
+        var pizzaDTOs = await handler.GetPizzas();
         return Ok(pizzaDTOs);
     }
 
@@ -27,7 +27,7 @@ public class PizzasController : ControllerBase
     [Produces(typeof(PizzaDTO))]
     public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
     {
-        var pizzaDTO = await _pizzaHandler.GetPizzaById(id);
+        var pizzaDTO = await handler.GetPizzaById(id);
         if (pizzaDTO == null)
         {
             return NotFound();
@@ -42,7 +42,7 @@ public class PizzasController : ControllerBase
     {
         try
         {
-            await _pizzaHandler.UpdatePizza(id, pizza);
+            await handler.UpdatePizza(id, pizza);
         }
         catch (ArgumentException)
         {
@@ -56,7 +56,7 @@ public class PizzasController : ControllerBase
     [Produces(typeof(PizzaDTO))]
     public async Task<ActionResult<PizzaDTO>> PostPizza(PizzaDTO pizza)
     {
-        var pizzaDTO = await _pizzaHandler.CreatePizza(pizza);
+        var pizzaDTO = await handler.CreatePizza(pizza);
         return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizzaDTO);
     }
 
@@ -65,7 +65,7 @@ public class PizzasController : ControllerBase
     [Produces(typeof(void))]
     public async Task<IActionResult> DeletePizza(Guid id)
     {
-        await _pizzaHandler.DeletePizza(id);
+        await handler.DeletePizza(id);
         return NoContent();
     }
 }
