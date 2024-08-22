@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PezzaApi.Data.Models;
-using PezzaApi.DTO;
+﻿using PezzaApi.DTO;
 
 namespace PezzaApi.Common.Interfaces
 {
