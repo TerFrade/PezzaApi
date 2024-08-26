@@ -1,6 +1,6 @@
+using DataAccess;
 using Microsoft.EntityFrameworkCore;
-using PezzaApi.Common.Interfaces;
-using PezzaApi.Data;
+using PezzaApi.Menu.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;

@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\common\\handlers\\pizzahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\common\\handlers\\pizzahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FEA3F133-378A-4124-BA84-0D7954B9F88B}|PezzaApi.Menu\\PezzaApi.Menu.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi.menu\\dto\\pizzadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEA3F133-378A-4124-BA84-0D7954B9F88B}|PezzaApi.Menu\\PezzaApi.Menu.csproj|solutionrelative:pezzaapi.menu\\dto\\pizzadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\controllers\\pizzacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\controllers\\pizzacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\data\\models\\pizzamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\data\\models\\pizzamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B2CF8DC0-DC4D-4897-96BE-CFF1190BBE7F}|DataAccess\\DataAccess.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\dataaccess\\pezzadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2CF8DC0-DC4D-4897-96BE-CFF1190BBE7F}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\pezzadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\dto\\pizza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\dto\\pizza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FEA3F133-378A-4124-BA84-0D7954B9F88B}|PezzaApi.Menu\\PezzaApi.Menu.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi.menu\\handlers\\pizzahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEA3F133-378A-4124-BA84-0D7954B9F88B}|PezzaApi.Menu\\PezzaApi.Menu.csproj|solutionrelative:pezzaapi.menu\\handlers\\pizzahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEA3F133-378A-4124-BA84-0D7954B9F88B}|PezzaApi.Menu\\PezzaApi.Menu.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi.menu\\interfaces\\ipizzahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEA3F133-378A-4124-BA84-0D7954B9F88B}|PezzaApi.Menu\\PezzaApi.Menu.csproj|solutionrelative:pezzaapi.menu\\interfaces\\ipizzahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2CF8DC0-DC4D-4897-96BE-CFF1190BBE7F}|DataAccess\\DataAccess.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\dataaccess\\models\\pizza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2CF8DC0-DC4D-4897-96BE-CFF1190BBE7F}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\models\\pizza.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\pezzaapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\pezzaapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,32 +42,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PizzaModel.cs",
-              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Data\\Models\\PizzaModel.cs",
-              "RelativeDocumentMoniker": "PezzaApi\\Data\\Models\\PizzaModel.cs",
-              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Data\\Models\\PizzaModel.cs",
-              "RelativeToolTip": "PezzaApi\\Data\\Models\\PizzaModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Pizza.cs",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\DataAccess\\Models\\Pizza.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Models\\Pizza.cs",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\DataAccess\\Models\\Pizza.cs",
+              "RelativeToolTip": "DataAccess\\Models\\Pizza.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T16:53:32.752Z",
+              "WhenOpened": "2024-08-26T09:22:45.048Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Pizza.cs",
-              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\DTO\\Pizza.cs",
-              "RelativeDocumentMoniker": "PezzaApi\\DTO\\Pizza.cs",
-              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\DTO\\Pizza.cs",
-              "RelativeToolTip": "PezzaApi\\DTO\\Pizza.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Program.cs",
+              "RelativeDocumentMoniker": "PezzaApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Program.cs",
+              "RelativeToolTip": "PezzaApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T16:49:48.835Z",
+              "WhenOpened": "2024-08-26T07:56:23.095Z",
               "EditorCaption": ""
             },
             {
@@ -62,22 +78,73 @@
               "RelativeDocumentMoniker": "PezzaApi\\Controllers\\PizzaController.cs",
               "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Controllers\\PizzaController.cs",
               "RelativeToolTip": "PezzaApi\\Controllers\\PizzaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAMwDoAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T16:46:22.649Z",
+              "WhenOpened": "2024-08-26T07:51:57.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PezzaDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\DataAccess\\PezzaDbContext.cs",
+              "RelativeDocumentMoniker": "DataAccess\\PezzaDbContext.cs",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\DataAccess\\PezzaDbContext.cs",
+              "RelativeToolTip": "DataAccess\\PezzaDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T07:43:16.078Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PizzaHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Common\\Handlers\\PizzaHandler.cs",
-              "RelativeDocumentMoniker": "PezzaApi\\Common\\Handlers\\PizzaHandler.cs",
-              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Common\\Handlers\\PizzaHandler.cs",
-              "RelativeToolTip": "PezzaApi\\Common\\Handlers\\PizzaHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA3AAAAAAAAAA==",
+              "Title": "PizzaDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\DTO\\PizzaDTO.cs",
+              "RelativeDocumentMoniker": "PezzaApi.Menu\\DTO\\PizzaDTO.cs",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\DTO\\PizzaDTO.cs",
+              "RelativeToolTip": "PezzaApi.Menu\\DTO\\PizzaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T16:44:16.525Z",
+              "WhenOpened": "2024-08-26T07:38:26.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PizzaHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\Handlers\\PizzaHandler.cs",
+              "RelativeDocumentMoniker": "PezzaApi.Menu\\Handlers\\PizzaHandler.cs",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\Handlers\\PizzaHandler.cs",
+              "RelativeToolTip": "PezzaApi.Menu\\Handlers\\PizzaHandler.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA5wCYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T07:21:31.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PezzaApi.csproj",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\PezzaApi.csproj",
+              "RelativeDocumentMoniker": "PezzaApi\\PezzaApi.csproj",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\PezzaApi.csproj",
+              "RelativeToolTip": "PezzaApi\\PezzaApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-26T07:57:27.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IPizzaHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\Interfaces\\IPizzaHandler.cs",
+              "RelativeDocumentMoniker": "PezzaApi.Menu\\Interfaces\\IPizzaHandler.cs",
+              "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\Interfaces\\IPizzaHandler.cs",
+              "RelativeToolTip": "PezzaApi.Menu\\Interfaces\\IPizzaHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T07:40:31.463Z",
               "EditorCaption": ""
             }
           ]

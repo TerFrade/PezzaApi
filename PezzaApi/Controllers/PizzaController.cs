@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PezzaApi.Common.Interfaces;
-using PezzaApi.DTO;
+using PezzaApi.Menu.DTO;
+using PezzaApi.Menu.Interfaces;
 
 [ApiController]
 [Route("[controller]")]
@@ -15,7 +15,7 @@ public class PizzaController : ControllerBase
 
     // GET: api/Pizzas
     [HttpGet]
-    [Produces(typeof(Pizza))]
+    [Produces(typeof(PizzaDTO))]
     public async Task<IActionResult> GetPizza()
     {
         var pizzaDTOs = await handler.GetPizzas();
@@ -24,8 +24,8 @@ public class PizzaController : ControllerBase
 
     // GET: api/Pizzas/5
     [HttpGet("{id}")]
-    [Produces(typeof(Pizza))]
-    public async Task<ActionResult<Pizza>> GetPizza(Guid id)
+    [Produces(typeof(PizzaDTO))]
+    public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
     {
         var pizzaDTO = await handler.GetPizzaById(id);
         if (pizzaDTO == null)
@@ -36,13 +36,13 @@ public class PizzaController : ControllerBase
     }
 
     // PUT: api/Pizzas/5
-    [HttpPut("{id}")]
+    [HttpPut]
     [Produces(typeof(void))]
-    public async Task<IActionResult> PutPizza(Guid id, Pizza pizza)
+    public async Task<IActionResult> UpdatePizza(PizzaDTO pizzaDTO)
     {
         try
         {
-            await handler.UpdatePizza(id, pizza);
+            await handler.UpdatePizza(pizzaDTO);
         }
         catch (ArgumentException)
         {
@@ -53,11 +53,11 @@ public class PizzaController : ControllerBase
 
     // POST: api/Pizzas
     [HttpPost]
-    [Produces(typeof(Pizza))]
-    public async Task<ActionResult<Pizza>> PostPizza(Pizza pizza)
+    [Produces(typeof(PizzaDTO))]
+    public async Task<ActionResult> PostPizza(PizzaDTO pizzaDTO)
     {
-        var pizzaDTO = await handler.CreatePizza(pizza);
-        return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizzaDTO);
+        var pizza = await handler.CreatePizza(pizzaDTO);
+        return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizza);
     }
 
     // DELETE: api/Pizzas/5
