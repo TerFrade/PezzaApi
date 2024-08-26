@@ -43,12 +43,12 @@ public class PizzaController : ControllerBase
         try
         {
             await handler.UpdatePizza(pizzaDTO);
+            return NoContent();
         }
-        catch (ArgumentException)
+        catch (ArgumentException ex)
         {
-            return BadRequest();
+            return BadRequest(ex.Message);
         }
-        return NoContent();
     }
 
     // POST: api/Pizzas
@@ -56,8 +56,15 @@ public class PizzaController : ControllerBase
     [Produces(typeof(PizzaDTO))]
     public async Task<ActionResult> PostPizza(PizzaDTO pizzaDTO)
     {
-        var pizza = await handler.CreatePizza(pizzaDTO);
-        return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizza);
+        try
+        {
+            var pizza = await handler.CreatePizza(pizzaDTO);
+            return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizza);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     // DELETE: api/Pizzas/5
@@ -65,7 +72,14 @@ public class PizzaController : ControllerBase
     [Produces(typeof(void))]
     public async Task<IActionResult> DeletePizza(Guid id)
     {
-        await handler.DeletePizza(id);
-        return NoContent();
+        try
+        {
+            await handler.DeletePizza(id);
+            return NoContent();
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

@@ -28,6 +28,7 @@ public class PizzaHandler : IPizzaHandler
 
     public async Task<PizzaDTO> CreatePizza(PizzaDTO pizzaDTO)
     {
+        ValidatePizza(pizzaDTO);
         var pizza = new Pizza
         {
             Name = pizzaDTO.Name,
@@ -36,17 +37,18 @@ public class PizzaHandler : IPizzaHandler
         };
 
         dbContext.Pizzas.Add(pizza);
-        await dbContext.SaveChangesAsync(); // Generates the Id
+        await dbContext.SaveChangesAsync();
 
         return new PizzaDTO(pizza);
     }
 
     public async Task UpdatePizza(PizzaDTO pizzaDTO)
     {
+        ValidatePizza(pizzaDTO);
+
         var pizza = await dbContext.Pizzas.FindAsync(pizzaDTO.Id);
         if (pizza == null) throw new ArgumentException("Pizza not found");
 
-        // Update properties
         pizza.Name = pizzaDTO.Name;
         pizza.Description = pizzaDTO.Description;
         pizza.Price = pizzaDTO.Price;
@@ -58,10 +60,23 @@ public class PizzaHandler : IPizzaHandler
     public async Task DeletePizza(Guid id)
     {
         var pizza = await dbContext.Pizzas.FindAsync(id);
-        if (pizza != null)
+        if (pizza == null) throw new ArgumentException("Pizza not found");
+
+        dbContext.Pizzas.Remove(pizza);
+        await dbContext.SaveChangesAsync();
+    }
+
+    private void ValidatePizza(PizzaDTO pizzaDTO)
+    {
+        // Business logic: Validation
+        if (string.IsNullOrWhiteSpace(pizzaDTO.Name))
         {
-            dbContext.Pizzas.Remove(pizza);
-            await dbContext.SaveChangesAsync();
+            throw new ArgumentException("Pizza name is required");
+        }
+
+        if (pizzaDTO.Price < 20)
+        {
+            throw new ArgumentException("Pizza price needs to be more than R20");
         }
     }
 }
