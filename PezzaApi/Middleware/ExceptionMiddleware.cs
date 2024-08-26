@@ -6,24 +6,24 @@ namespace PezzaApi.Middleware
 {
     public class ExceptionMiddleware
     {
-        private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionMiddleware> _logger;
+        private readonly RequestDelegate next;
+        private readonly ILogger<ExceptionMiddleware> logger;
 
         public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
         {
-            _next = next;
-            _logger = logger;
+            this.next = next;
+            this.logger = logger;
         }
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
             try
             {
-                await _next(httpContext);
+                await next(httpContext);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"An error occurred: {ex.Message}");
+                logger.LogError(ex, $"An error occurred: {ex.Message}");
                 await HandleExceptionAsync(httpContext, ex);
             }
         }
@@ -46,7 +46,7 @@ namespace PezzaApi.Middleware
                 StackTrace = context.Response.StatusCode == (int)HttpStatusCode.InternalServerError ? exception.StackTrace : null
             };
 
-            _logger.LogError(exception, "An error occurred while processing your request.");
+            logger.LogError(exception, "An error occurred while processing your request.");
 
             await context.Response.WriteAsync(JsonConvert.SerializeObject(errorDetails));
         }
