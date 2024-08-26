@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PezzaApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3a43e0ac370d517dce63c5accc3e20cb727a7f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c1cd8f6a6c80cf743e4e3b5b59d67a2913807b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PezzaApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PezzaApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

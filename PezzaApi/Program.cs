@@ -1,6 +1,8 @@
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
+
 using PezzaApi.Menu.Interfaces;
+using PezzaApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -28,6 +30,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseCors("CorsPolicy");
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
@@ -38,7 +41,6 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = "swagger";
     });
 }
-
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

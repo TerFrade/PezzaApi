@@ -29,6 +29,7 @@ public class PizzaHandler : IPizzaHandler
     public async Task<PizzaDTO> CreatePizza(PizzaDTO pizzaDTO)
     {
         ValidatePizza(pizzaDTO);
+
         var pizza = new Pizza
         {
             Name = pizzaDTO.Name,

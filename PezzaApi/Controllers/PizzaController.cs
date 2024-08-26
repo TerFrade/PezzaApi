@@ -13,7 +13,6 @@ public class PizzaController : ControllerBase
         handler = pizzaHandler;
     }
 
-    // GET: api/Pizzas
     [HttpGet]
     [Produces(typeof(PizzaDTO))]
     public async Task<IActionResult> GetPizza()
@@ -22,64 +21,35 @@ public class PizzaController : ControllerBase
         return Ok(pizzaDTOs);
     }
 
-    // GET: api/Pizzas/5
     [HttpGet("{id}")]
     [Produces(typeof(PizzaDTO))]
     public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
     {
         var pizzaDTO = await handler.GetPizzaById(id);
-        if (pizzaDTO == null)
-        {
-            return NotFound();
-        }
         return Ok(pizzaDTO);
     }
 
-    // PUT: api/Pizzas/5
     [HttpPut]
     [Produces(typeof(void))]
     public async Task<IActionResult> UpdatePizza(PizzaDTO pizzaDTO)
     {
-        try
-        {
-            await handler.UpdatePizza(pizzaDTO);
-            return NoContent();
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        await handler.UpdatePizza(pizzaDTO);
+        return NoContent();
     }
 
-    // POST: api/Pizzas
     [HttpPost]
     [Produces(typeof(PizzaDTO))]
-    public async Task<ActionResult> PostPizza(PizzaDTO pizzaDTO)
+    public async Task<ActionResult> CreatePizza(PizzaDTO pizzaDTO)
     {
-        try
-        {
-            var pizza = await handler.CreatePizza(pizzaDTO);
-            return CreatedAtAction("GetPizza", new { id = pizza.Id }, pizza);
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        var createdPizza = await handler.CreatePizza(pizzaDTO);
+        return CreatedAtAction(nameof(GetPizza), new { id = createdPizza.Id }, createdPizza);
     }
 
-    // DELETE: api/Pizzas/5
     [HttpDelete("{id}")]
     [Produces(typeof(void))]
     public async Task<IActionResult> DeletePizza(Guid id)
     {
-        try
-        {
-            await handler.DeletePizza(id);
-            return NoContent();
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        await handler.DeletePizza(id);
+        return NoContent();
     }
 }
