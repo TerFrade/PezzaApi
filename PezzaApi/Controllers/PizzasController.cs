@@ -4,11 +4,11 @@ using PezzaApi.Menu.Interfaces;
 
 [ApiController]
 [Route("[controller]")]
-public class PizzaController : ControllerBase
+public class PizzasController : ControllerBase
 {
     private readonly IPizzaHandler handler;
 
-    public PizzaController(IPizzaHandler pizzaHandler)
+    public PizzasController(IPizzaHandler pizzaHandler)
     {
         handler = pizzaHandler;
     }

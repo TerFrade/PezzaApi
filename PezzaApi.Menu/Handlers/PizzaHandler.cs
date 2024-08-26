@@ -1,6 +1,6 @@
 ﻿using DataAccess;
 using Microsoft.EntityFrameworkCore;
-using PezzaApi.DataAccess.Models;
+using DataAccess.Models;
 using PezzaApi.Menu.DTO;
 using PezzaApi.Menu.Interfaces;
 

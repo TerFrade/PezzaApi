@@ -2426,6 +2426,20 @@
         "runtime": {
           "bin/placeholder/PezzaApi.Menu.dll": {}
         }
+      },
+      "PezzaApi.User/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DataAccess": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/PezzaApi.User.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PezzaApi.User.dll": {}
+        }
       }
     }
   },
@@ -6973,6 +6987,11 @@
       "type": "project",
       "path": "../PezzaApi.Menu/PezzaApi.Menu.csproj",
       "msbuildProject": "../PezzaApi.Menu/PezzaApi.Menu.csproj"
+    },
+    "PezzaApi.User/1.0.0": {
+      "type": "project",
+      "path": "../PezzaApi.User/PezzaApi.User.csproj",
+      "msbuildProject": "../PezzaApi.User/PezzaApi.User.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6984,6 +7003,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.4",
       "PezzaApi.Menu >= 1.0.0",
+      "PezzaApi.User >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -7020,6 +7040,9 @@
             },
             "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\PezzaApi.Menu.csproj": {
               "projectPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\PezzaApi.Menu.csproj"
+            },
+            "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\PezzaApi.User.csproj": {
+              "projectPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\PezzaApi.User.csproj"
             }
           }
         }

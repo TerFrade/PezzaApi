@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PezzaApi.DataAccess.Models
+namespace DataAccess.Models
 {
     [Table("Pizza")]
     public class Pizza
     {
-        [Key] public Guid Id { get; set; }
+        [Key, Column(Order = 1)] public int Id { get; set; }
 
         [MinLength(3), MaxLength(35), Required] public string Name { get; set; }
 
@@ -18,7 +18,7 @@ namespace PezzaApi.DataAccess.Models
 
         public static Pizza[] Seed = new Pizza[]
         {
-             new Pizza() { Id = Guid.NewGuid(), Name = "Triple Cheese Pizza", DateCreated = DateTime.Now, Description="Triple Cheese Pizza consists of 3 types of cheese: Mozzerella, Cheddar, Feta", Price =  39.99M},
+             new Pizza() {Id=1, Name = "Triple Cheese Pizza", DateCreated = DateTime.Now, Description="Triple Cheese Pizza consists of 3 types of cheese: Mozzerella, Cheddar, Feta", Price =  39.99M},
         };
     }
 }

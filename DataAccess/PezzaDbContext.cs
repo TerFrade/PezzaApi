@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
-using PezzaApi.DataAccess.Models;
+using DataAccess.Models;
 
 namespace DataAccess
 {
     public class PezzaDbContext : DbContext
     {
         public DbSet<Pizza> Pizzas { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public PezzaDbContext(DbContextOptions<PezzaDbContext> options) : base(options)
         {
@@ -16,7 +17,7 @@ namespace DataAccess
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Pizza>()
+            modelBuilder.Entity<Customer>()
                         .Property(p => p.Id)
                         .HasValueGenerator<SequentialGuidValueGenerator>();
 

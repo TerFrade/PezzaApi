@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 using PezzaApi.Menu.Interfaces;
 using PezzaApi.Middleware;
+using PezzaApi.User.Handlers;
+using PezzaApi.User.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -13,6 +15,7 @@ services.AddDbContext<PezzaDbContext>(options =>
 
 // Add services to the container.
 services.AddScoped<IPizzaHandler, PizzaHandler>();
+services.AddScoped<ICustomerHandler, CustomerHandler>();
 
 services.AddCors(options =>
 {
