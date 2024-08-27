@@ -1,6 +1,6 @@
 ﻿using DataAccess;
-using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using PezzaApi.Menu.DTO;
 using PezzaApi.Menu.Interfaces;
 
@@ -19,10 +19,10 @@ public class PizzaHandler : IPizzaHandler
         return pizzas.Select(p => new PizzaDTO(p));
     }
 
-    public async Task<PizzaDTO> GetPizzaById(Guid id)
+    public async Task<PizzaDTO> GetPizzaById(int id)
     {
         var pizza = await dbContext.Pizzas.FindAsync(id);
-        if (pizza == null) throw new ArgumentException("Pizza not found");
+        if (pizza == null) throw new KeyNotFoundException("Pizza not found");
         return new PizzaDTO(pizza);
     }
 
@@ -48,7 +48,7 @@ public class PizzaHandler : IPizzaHandler
         ValidatePizza(pizzaDTO);
 
         var pizza = await dbContext.Pizzas.FindAsync(pizzaDTO.Id);
-        if (pizza == null) throw new ArgumentException("Pizza not found");
+        if (pizza == null) throw new KeyNotFoundException("Pizza not found");
 
         pizza.Name = pizzaDTO.Name;
         pizza.Description = pizzaDTO.Description;
@@ -58,10 +58,10 @@ public class PizzaHandler : IPizzaHandler
         await dbContext.SaveChangesAsync();
     }
 
-    public async Task DeletePizza(Guid id)
+    public async Task DeletePizza(int id)
     {
         var pizza = await dbContext.Pizzas.FindAsync(id);
-        if (pizza == null) throw new ArgumentException("Pizza not found");
+        if (pizza == null) throw new KeyNotFoundException("Pizza not found");
 
         dbContext.Pizzas.Remove(pizza);
         await dbContext.SaveChangesAsync();

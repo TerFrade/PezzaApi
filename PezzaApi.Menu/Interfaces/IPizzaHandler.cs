@@ -6,12 +6,12 @@ namespace PezzaApi.Menu.Interfaces
     {
         Task<IEnumerable<PizzaDTO>> GetPizzas();
 
-        Task<PizzaDTO> GetPizzaById(Guid id);
+        Task<PizzaDTO> GetPizzaById(int id);
 
         Task UpdatePizza(PizzaDTO pizzaDTO);
 
         Task<PizzaDTO> CreatePizza(PizzaDTO pizzaDTO);
 
-        Task DeletePizza(Guid id);
+        Task DeletePizza(int id);
     }
 }

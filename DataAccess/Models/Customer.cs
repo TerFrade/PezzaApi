@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccess.Models
 {
+    [Table("Customer")]
     public class Customer
     {
         [Key] public Guid Id { get; set; }
@@ -11,7 +12,7 @@ namespace DataAccess.Models
 
         public string? Address { get; set; }
 
-        public string? Email { get; set; }
+        public string Email { get; set; }
 
         public string? Cellphone { get; set; }
 

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DataAccess;
-using DataAccess.Models;
 using PezzaApi.User.DTO;
+using PezzaApi.User.Interfaces;
 
 namespace PezzaApi.Controllers
 {
@@ -10,104 +8,46 @@ namespace PezzaApi.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly PezzaDbContext dbContext;
+        private readonly ICustomerHandler handler;
 
-        public CustomersController(PezzaDbContext context)
+        public CustomersController(ICustomerHandler customerHandler)
         {
-            dbContext = context;
+            handler = customerHandler;
         }
 
-        // GET: api/Customers
         [HttpGet]
-        public async Task<IEnumerable<CustomerDTO>> GetCustomers()
+        public async Task<IActionResult> GetCustomers()
         {
-            var customers = await dbContext.Customers.ToListAsync();
-            return customers.Select(p => new CustomerDTO(p));
+            var customersDTOs = await handler.GetCustomers();
+            return Ok(customersDTOs);
         }
 
-        // GET: api/Customers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<CustomerDTO>> GetCustomer(Guid id)
         {
-            var customer = await dbContext.Customers.FindAsync(id);
-
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            return new CustomerDTO(customer);
+            var pizzaDTO = await handler.GetCustomerById(id);
+            return Ok(pizzaDTO);
         }
 
-        // PUT: api/Customers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(Guid id, CustomerDTO customer)
+        public async Task<IActionResult> UpdateCustomer(CustomerDTO customer)
         {
-            if (id != customer.Id)
-            {
-                return BadRequest();
-            }
-
-            dbContext.Entry(customer).State = EntityState.Modified;
-
-            try
-            {
-                await dbContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CustomerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await handler.UpdateCustomer(customer);
             return NoContent();
         }
 
-        // POST: api/Customers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<CustomerDTO>> PostCustomer(CustomerDTO customerDTO)
         {
-            var customer = new Customer
-            {
-                Name = customerDTO.Name,
-                Address = customerDTO.Address,
-                Email = customerDTO.Email,
-                Cellphone = customerDTO.Cellphone,
-            };
-
-            dbContext.Customers.Add(customer);
-            await dbContext.SaveChangesAsync();
-
-            return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
+            var createdPizza = await handler.CreateCustomer(customerDTO);
+            return CreatedAtAction(nameof(GetCustomer), new { id = createdPizza.Id }, createdPizza);
         }
 
-        // DELETE: api/Customers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(Guid id)
         {
-            var customer = await dbContext.Customers.FindAsync(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            dbContext.Customers.Remove(customer);
-            await dbContext.SaveChangesAsync();
-
+            await handler.DeleteCustomer(id);
             return NoContent();
-        }
-
-        private bool CustomerExists(Guid id)
-        {
-            return dbContext.Customers.Any(e => e.Id == id);
         }
     }
 }

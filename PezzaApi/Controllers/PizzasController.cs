@@ -23,7 +23,7 @@ public class PizzasController : ControllerBase
 
     [HttpGet("{id}")]
     [Produces(typeof(PizzaDTO))]
-    public async Task<ActionResult<PizzaDTO>> GetPizza(Guid id)
+    public async Task<ActionResult<PizzaDTO>> GetPizza(int id)
     {
         var pizzaDTO = await handler.GetPizzaById(id);
         return Ok(pizzaDTO);
@@ -47,7 +47,7 @@ public class PizzasController : ControllerBase
 
     [HttpDelete("{id}")]
     [Produces(typeof(void))]
-    public async Task<IActionResult> DeletePizza(Guid id)
+    public async Task<IActionResult> DeletePizza(int id)
     {
         await handler.DeletePizza(id);
         return NoContent();

@@ -1,17 +1,17 @@
 using DataAccess;
-using Microsoft.EntityFrameworkCore;
-
 using PezzaApi.Menu.Interfaces;
 using PezzaApi.Middleware;
 using PezzaApi.User.Handlers;
 using PezzaApi.User.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-// Configure DbContext with in-memory database
+// Configure DbContext with postgresql database
+var Configuration = builder.Configuration;
 services.AddDbContext<PezzaDbContext>(options =>
-    options.UseInMemoryDatabase("PezzaDb"));
+        options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("PezzaApi")));
 
 // Add services to the container.
 services.AddScoped<IPizzaHandler, PizzaHandler>();

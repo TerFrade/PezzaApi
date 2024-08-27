@@ -18,7 +18,7 @@ namespace DataAccess.Models
 
         public static Pizza[] Seed = new Pizza[]
         {
-             new Pizza() {Id=1, Name = "Triple Cheese Pizza", DateCreated = DateTime.Now, Description="Triple Cheese Pizza consists of 3 types of cheese: Mozzerella, Cheddar, Feta", Price =  39.99M},
+             new Pizza() {Id=1, Name = "Triple Cheese Pizza", DateCreated = DateTime.UtcNow, Description="Triple Cheese Pizza consists of 3 types of cheese: Mozzerella, Cheddar, Feta", Price =  39.99M},
         };
     }
 }
