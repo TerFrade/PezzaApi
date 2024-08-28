@@ -7069,19 +7069,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Terence\\.nuget\\packages\\": {}
+    "C:\\Users\\terence.frade\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\PezzaApi.csproj",
+      "projectUniqueName": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi\\PezzaApi.csproj",
       "projectName": "PezzaApi",
-      "projectPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\PezzaApi.csproj",
-      "packagesPath": "C:\\Users\\Terence\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\obj\\",
+      "projectPath": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi\\PezzaApi.csproj",
+      "packagesPath": "C:\\Users\\terence.frade\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Terence\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\terence.frade\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7096,14 +7096,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\PezzaApi.Menu.csproj": {
-              "projectPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\PezzaApi.Menu.csproj"
+            "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\PezzaApi.Menu.csproj": {
+              "projectPath": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.Menu\\PezzaApi.Menu.csproj"
             },
-            "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\PezzaApi.User.csproj": {
-              "projectPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\PezzaApi.User.csproj"
+            "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\PezzaApi.User.csproj": {
+              "projectPath": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\PezzaApi.User.csproj"
             }
           }
         }

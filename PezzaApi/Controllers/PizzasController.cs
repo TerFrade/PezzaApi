@@ -13,9 +13,10 @@ public class PizzasController : ControllerBase
         handler = pizzaHandler;
     }
 
+
     [HttpGet]
     [Produces(typeof(PizzaDTO))]
-    public async Task<IActionResult> GetPizza()
+    public async Task<IActionResult> GetPizzas()
     {
         var pizzaDTOs = await handler.GetPizzas();
         return Ok(pizzaDTOs);
