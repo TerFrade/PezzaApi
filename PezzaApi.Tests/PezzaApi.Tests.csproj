@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Order\**" />
+    <Compile Remove="User\**" />
+    <EmbeddedResource Remove="Order\**" />
+    <EmbeddedResource Remove="User\**" />
+    <None Remove="Order\**" />
+    <None Remove="User\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Moq" Version="4.20.70" />
@@ -20,11 +29,6 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Order\" />
-    <Folder Include="User\" />
   </ItemGroup>
 
   <ItemGroup>
