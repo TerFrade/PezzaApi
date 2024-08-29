@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PezzaApi.Menu", "PezzaApi.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B2CF8DC0-DC4D-4897-96BE-CFF1190BBE7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PezzaApi.User", "PezzaApi.User\PezzaApi.User.csproj", "{629C6E70-40B0-4837-9874-BD7F0FCDD149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PezzaApi.User", "PezzaApi.User\PezzaApi.User.csproj", "{629C6E70-40B0-4837-9874-BD7F0FCDD149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PezzaApi.Tests", "PezzaApi.Tests\PezzaApi.Tests.csproj", "{D3747491-90F7-43AF-8508-B227D03659E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{629C6E70-40B0-4837-9874-BD7F0FCDD149}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{629C6E70-40B0-4837-9874-BD7F0FCDD149}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{629C6E70-40B0-4837-9874-BD7F0FCDD149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3747491-90F7-43AF-8508-B227D03659E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3747491-90F7-43AF-8508-B227D03659E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3747491-90F7-43AF-8508-B227D03659E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3747491-90F7-43AF-8508-B227D03659E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
