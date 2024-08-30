@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence.frade\\desktop\\projects\\pezzaapi\\pezzaapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{629C6E70-40B0-4837-9874-BD7F0FCDD149}|PezzaApi.User\\PezzaApi.User.csproj|c:\\users\\terence.frade\\desktop\\projects\\pezzaapi\\pezzaapi.user\\handlers\\customerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{629C6E70-40B0-4837-9874-BD7F0FCDD149}|PezzaApi.User\\PezzaApi.User.csproj|solutionrelative:pezzaapi.user\\handlers\\customerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,19 +27,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CustomerHandler.cs",
-              "DocumentMoniker": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\Handlers\\CustomerHandler.cs",
-              "RelativeDocumentMoniker": "PezzaApi.User\\Handlers\\CustomerHandler.cs",
-              "ToolTip": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\Handlers\\CustomerHandler.cs",
-              "RelativeToolTip": "PezzaApi.User\\Handlers\\CustomerHandler.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAiwFwAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T06:41:20.7Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi\\appsettings.json",
+              "RelativeDocumentMoniker": "PezzaApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi\\appsettings.json",
+              "RelativeToolTip": "PezzaApi\\appsettings.json",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-30T07:01:09.077Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CustomerHandler.cs",
+              "DocumentMoniker": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\Handlers\\CustomerHandler.cs",
+              "RelativeDocumentMoniker": "PezzaApi.User\\Handlers\\CustomerHandler.cs",
+              "ToolTip": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\Handlers\\CustomerHandler.cs",
+              "RelativeToolTip": "PezzaApi.User\\Handlers\\CustomerHandler.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAqwGQAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T06:41:20.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Users\\terence.frade\\Desktop\\Projects\\PezzaApi\\DataAccess\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "DataAccess\\Models\\Customer.cs",
@@ -43,8 +59,7 @@
               "RelativeToolTip": "DataAccess\\Models\\Customer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T06:39:43.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T06:39:43.08Z"
             }
           ]
         }

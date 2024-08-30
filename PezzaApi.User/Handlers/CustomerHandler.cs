@@ -58,7 +58,7 @@ namespace PezzaApi.User.Handlers
             customer.Email = customerDTO.Email;
             customer.Cellphone = customerDTO.Cellphone;
 
-            dbContext.Entry(customer).State = EntityState.Modified;
+            dbContext.Entry(customer).State = EntityState.Modified; // Research this
             await dbContext.SaveChangesAsync();
         }
 
@@ -101,7 +101,7 @@ namespace PezzaApi.User.Handlers
             return dbContext.Customers.Any(e => e.Email == email);
         }
 
-        bool IsValidEmail(string email)
+        bool IsValidEmail(string email) //Move to Domain level??
         {
             var trimmedEmail = email.Trim();
 
