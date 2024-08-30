@@ -84,15 +84,40 @@ namespace PezzaApi.User.Handlers
                 throw new ArgumentException("Customer email is required");
             }
 
+            if (!IsValidEmail(customerDTO.Email))
+            {
+                throw new ArgumentException("Customer email is invalid type.");
+            }
+
             if (CustomerExists(customerDTO.Email))
             {
                 throw new ArgumentException("Customer with the same email already exists.");
             }
+
         }
 
         private bool CustomerExists(string email)
         {
             return dbContext.Customers.Any(e => e.Email == email);
+        }
+
+        bool IsValidEmail(string email)
+        {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
