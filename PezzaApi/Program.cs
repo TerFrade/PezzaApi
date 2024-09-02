@@ -1,21 +1,32 @@
 using DataAccess;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using PezzaApi.Menu.Interfaces;
 using PezzaApi.Middleware;
+using PezzaApi.Services;
 using PezzaApi.User.Handlers;
 using PezzaApi.User.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-// Configure DbContext with postgresql database
-var Configuration = builder.Configuration;
-services.AddDbContext<PezzaDbContext>(options =>
-        options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("PezzaApi")));
+// Load JWT settings
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var secretKey = jwtSettings["Key"];
 
-// Add services to the container.
+// Configure DbContext with PostgreSQL database
+services.AddDbContext<PezzaDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+                      b => b.MigrationsAssembly("PezzaApi")));
+
+// Register services and handlers
 services.AddScoped<IPizzaHandler, PizzaHandler>();
 services.AddScoped<ICustomerHandler, CustomerHandler>();
+services.AddSingleton<TokenService>();
+services.AddSingleton<PasswordService>();
 
 services.AddCors(options =>
 {
@@ -25,9 +36,65 @@ services.AddCors(options =>
                .AllowAnyHeader());
 });
 
+// Configure JWT authentication
+services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+    };
+});
+
+services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole(UserRole.Admin.ToString()));
+    options.AddPolicy("RequireUserRole", policy => policy.RequireRole(UserRole.User.ToString()));
+});
+
+// Configure Swagger for JWT Authentication
+services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pezza API", Version = "v1" });
+
+    // Add JWT Authentication to Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter 'Bearer' followed by your token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new List<string>()
+        }
+    });
+});
+
 services.AddControllers();
 services.AddEndpointsApiExplorer();
-services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -44,7 +111,9 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = "swagger";
     });
 }
+
 app.UseHttpsRedirection();
+app.UseAuthentication();  // Add Authentication
 app.UseAuthorization();
 app.MapControllers();
 

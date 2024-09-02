@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PezzaApi.User.DTO;
 using PezzaApi.User.Interfaces;
 
@@ -16,6 +17,7 @@ namespace PezzaApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Policy = "RequireUserRole")]
         public async Task<IActionResult> GetCustomers()
         {
             var customersDTOs = await handler.GetCustomers();

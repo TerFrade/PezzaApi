@@ -46,6 +46,12 @@ namespace PezzaApi.User.Handlers
             return new CustomerDTO(customer);
         }
 
+        public async Task AddCustomer(Customer customer)
+        {
+            dbContext.Customers.Add(customer);
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task UpdateCustomer(CustomerDTO customerDTO)
         {
             ValidateCustomer(customerDTO);
@@ -58,7 +64,7 @@ namespace PezzaApi.User.Handlers
             customer.Email = customerDTO.Email;
             customer.Cellphone = customerDTO.Cellphone;
 
-            dbContext.Entry(customer).State = EntityState.Modified;
+            dbContext.Entry(customer).State = EntityState.Modified; // If EF Core is not tracking the Entity or if you want to Force Updates.
             await dbContext.SaveChangesAsync();
         }
 
@@ -84,15 +90,17 @@ namespace PezzaApi.User.Handlers
                 throw new ArgumentException("Customer email is required");
             }
 
-            if (CustomerExists(customerDTO.Email))
+            if (CustomerExists(customerDTO.Email) == null)
             {
                 throw new ArgumentException("Customer with the same email already exists.");
             }
         }
 
-        private bool CustomerExists(string email)
+        public Customer CustomerExists(string email)
         {
-            return dbContext.Customers.Any(e => e.Email == email);
+            return dbContext.Customers.FirstOrDefault(e => e.Email == email); //return bool if condition is met at least to one element.
+
+            //alternative SingleOrDefault or FirstOrDefault - These will return the full element if it matches or null if not exist SoD throws an Exception.
         }
     }
 }
