@@ -11,11 +11,8 @@
 
   <ItemGroup>
     <Compile Remove="Order\**" />
-    <Compile Remove="User\**" />
     <EmbeddedResource Remove="Order\**" />
-    <EmbeddedResource Remove="User\**" />
     <None Remove="Order\**" />
-    <None Remove="User\**" />
   </ItemGroup>
 
   <ItemGroup>
