@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{629C6E70-40B0-4837-9874-BD7F0FCDD149}|PezzaApi.User\\PezzaApi.User.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi.user\\handlers\\customerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{629C6E70-40B0-4837-9874-BD7F0FCDD149}|PezzaApi.User\\PezzaApi.User.csproj|solutionrelative:pezzaapi.user\\handlers\\customerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\pezzaapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9CD6CD9-B881-4C81-91BC-03C77B68CCF1}|PezzaApi\\PezzaApi.csproj|solutionrelative:pezzaapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B2CF8DC0-DC4D-4897-96BE-CFF1190BBE7F}|DataAccess\\DataAccess.csproj|c:\\users\\terence\\desktop\\projects\\pezzaapi\\dataaccess\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -103,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "PezzaApi\\Controllers\\AuthController.cs",
@@ -194,13 +194,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CustomerHandler.cs",
               "DocumentMoniker": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\Handlers\\CustomerHandler.cs",
               "RelativeDocumentMoniker": "PezzaApi.User\\Handlers\\CustomerHandler.cs",
               "ToolTip": "C:\\Users\\Terence\\Desktop\\Projects\\PezzaApi\\PezzaApi.User\\Handlers\\CustomerHandler.cs",
               "RelativeToolTip": "PezzaApi.User\\Handlers\\CustomerHandler.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAswGcAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAswGMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-27T07:08:51.414Z",
               "EditorCaption": ""
